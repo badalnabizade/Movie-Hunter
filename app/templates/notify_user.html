@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Movie Hunter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<link href={{url_for('static',filename="css/style.css")}} rel="stylesheet" type="text/css" media='all'>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-func.js"></script>
+<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
+<style>
+play {
+	position:absolute;
+	top:0;
+	left:0;
+	width:152px;
+	height:214px;
+	background:url('images/image-hover.png');
+	display:block;
+	z-index:5;
+	cursor:pointer;
+	display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- START PAGE SOURCE -->
+    <div class="header">
+      <h1>Movie Hunter</h1>
+      <p>Movie Recommendation</p>
+
+      </div>
+
+    <div id="sub-navigation" style="margin-left: 50px">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quick_recommendations"> Quick Recommendations</a></li>
+        <li><a href="best_movies"> Top Movies</a></li>
+        <li><a href="/personal_recos">Personal Recommendations</a></li>
+      </ul>
+    </div>
+
+<div id="shell">
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+
+        </div>
+
+          <div class="GR_button">
+              <p>Hi {{ name }}, your personal recommendations will be ready within 30 minutes.</p>
+
+      </div>
+    </div>
+
+    <div id="footer" style="margin-right:390px;">
+    <p class="rf">Developed by Badal Nabizade</p>
+    <div style="clear:both;"></div>
+          <div class="social">
+      <ul>
+        <a class="fab fa-github" href="#" style="font-size:24px;"></a>
+        <a class="fas fa-envelope" href="mailto:nabizadebadal@gmail.com" style="font-size:24px; margin-left:30px;"></a>
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

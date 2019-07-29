@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Movie Hunter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<link href={{url_for('static',filename="css/style.css")}} rel="stylesheet" type="text/css" media='all'>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-func.js"></script>
+<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
+<style>
+play {
+	position:absolute;
+	top:0;
+	left:0;
+	width:152px;
+	height:214px;
+	background:url('images/image-hover.png');
+	display:block;
+	z-index:5;
+	cursor:pointer;
+	display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- START PAGE SOURCE -->
+    <div class="header">
+      <h1>Movie Hunter</h1>
+      <p>Movie Recommendation</p>
+
+      </div>
+
+    <div id="sub-navigation" style="margin-left: 50px">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quick_recommendations"> Quick Recommendations</a></li>
+        <li><a href="/best_movies"> Top Movies</a></li>
+        <li><a href="/personal_recos">Personal Recommendations</a></li>
+      </ul>
+    </div>
+
+<div id="shell">
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"> </span><a href= {{ link_1 }} target="_blank" > <img src={{ img_src_1 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_2 }} target="_blank" > <img src={{ img_src_2 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_3 }} target="_blank" > <img src={{ img_src_3 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_4 }} target="_blank" > <img src={{ img_src_4 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_5 }} target="_blank" > <img src={{ img_src_5 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie last">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_6 }} target="_blank" > <img src={{ img_src_6 }} alt="" /></a> </div>
+
+        </div>
+        <div class="cl">&nbsp;</div>
+      </div>
+      <div class="box">
+        <div class="head">
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span> <a href={{ link_7 }} target="_blank" ><img src={{ img_src_7 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_8 }} target="_blank" > <img src={{ img_src_8 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+        <div class="movie-image"> <span class="play"></span><a href={{ link_9 }} target="_blank" > <img src={{ img_src_9 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span> <a href={{ link_10 }} target="_blank" ><img src={{ img_src_10 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_11 }} target="_blank" > <img src={{ img_src_11 }} alt="" /></a> </div>
+
+        </div>
+        <div class="movie last">
+          <div class="movie-image"> <span class="play"></span><a href={{ link_12 }} target="_blank" > <img src={{ img_src_12 }} alt="" /></a> </div>
+
+        </div>
+        <div class="cl">&nbsp;</div>
+      </div>
+<!--      <div class="box">-->
+<!--        <div class="head">-->
+<!--          <h2>MOST COMMENTED</h2>-->
+<!--          <p class="text-right"><a href="#">See all</a></p>-->
+<!--        </div>-->
+<!--        <div class="movie">-->
+<!--          <div class="movie-image"> <span class="play"><span class="name">HOUSE</span></span> <a href="#"><img src="css/images/movie13.jpg" alt="" /></a> </div>-->
+
+<!--        </div>-->
+<!--        <div class="movie">-->
+<!--          <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span> <a href="#"><img src="css/images/movie14.jpg" alt="" /></a> </div>-->
+
+<!--        </div>-->
+<!--        <div class="movie">-->
+<!--          <div class="movie-image"> <span class="play"><span class="name">MIRRORS</span></span> <a href="#"><img src="css/images/movie15.jpg" alt="" /></a> </div>-->
+
+<!--        </div>-->
+<!--        <div class="movie">-->
+<!--          <div class="movie-image"> <span class="play"><span class="name">THE KINGDOM</span></span> <a href="#"><img src="css/images/movie16.jpg" alt="" /></a> </div>-->
+
+<!--        </div>-->
+<!--        <div class="movie">-->
+<!--          <div class="movie-image"> <span class="play"><span class="name">MOTIVES</span></span> <a href="#"><img src="css/images/movie17.jpg" alt="" /></a> </div>-->
+
+<!--        </div>-->
+<!--        <div class="movie last">-->
+<!--          <div class="movie-image"> <span class="play"><span class="name">THE PRESTIGE</span></span> <a href="#"><img src="css/images/movie18.jpg" alt="" /></a> </div>-->
+
+<!--        </div>-->
+        <div class="cl">&nbsp;</div>
+      </div>
+    </div>
+    <div id="footer" style="margin-right:390px;">
+    <p class="rf">Developed by Badal Nabizade</p>
+    <div style="clear:both;"></div>
+          <div class="social">
+      <ul>
+        <a class="fab fa-github" href="#" style="font-size:24px;"></a>
+        <a class="fas fa-envelope" href="mailto:nabizadebadal@gmail.com" style="font-size:24px; margin-left:30px;"></a>
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

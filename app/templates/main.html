@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Hunter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 26px Arial;
+<!--  max-width: 500px;-->
+  margin-top: 0;
+<!--  margin-top:200px;-->
+  font-family:Arial, Helvetica, Sans-Serif;
+  color: #d9d9d9;
+  font-family:Arial, Helvetica, Sans-Serif;
+  background:url('static/css/images/body-bg.gif');
+
+}
+
+.content {
+  font: 26px Arial;
+  max-width: 500px;
+  margin: auto;
+  font-family:Arial, Helvetica, Sans-Serif;
+  color: #d9d9d9;
+  background:url('static/css/images/body-bg.gif');
+}
+
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid;
+  background-color: #f1f1f1;
+  max-width: 500px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 14px auto 20px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 800px;
+}
+
+input[type=submit] {
+  background-color: #f1f1f1;
+  color: #262626;
+  cursor: pointer;
+  width:800px;
+}
+
+.autocomplete-items {
+  position: relative;
+  border: 1px solid #d4d4d4;
+  color: #262626;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 5px;
+  margin-top:0;
+  text-align: left;
+  background:url('static/css/images/body-bg.gif');
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px solid;
+}
+
+
+#footer {
+	padding:15px 0 0 0;
+	font-size:15px;
+
+}
+#footer, #footer a {
+	color:#9c9c9c;
+	text-decoration:none;
+}
+#footer a:hover {
+	text-decoration:none;
+}
+#footer p {
+	margin:0;
+	padding:0 0 11px 0;
+	line-height:normal;
+	white-space:nowrap;
+}
+#footer .lf {
+	text-align: center;
+}
+#footer .rf {
+	text-align: center;
+}
+
+
+#fh5co-footer {
+  float: left;
+  width: 100%;
+  background: #ebebeb;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #999999;
+}
+#fh5co-footer a {
+  color: #bfbfbf;
+}
+#fh5co-footer a:hover, #fh5co-footer a:active, #fh5co-footer a:focus {
+  color: #000 !important;
+}
+#fh5co-footer .social {
+  margin-top: 20px;
+}
+#fh5co-footer .social a {
+  padding: 10px;
+  color: #999999 !important;
+}
+@media screen and (max-width: 480px) {
+  #fh5co-footer .social a {
+    padding: 5px;
+  }
+}
+#fh5co-footer .social a:hover, #fh5co-footer .social a:active, #fh5co-footer .social a:focus {
+  color: #000 !important;
+}
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.container-fluid:before, .container-fluid:after {
+  content: " ";
+  display: table;
+}
+.container-fluid:after {
+  clear: both;
+}
+
+.fh5co-projects-feed, .footer-content {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+.glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+
+.icon-github2:before {
+    content: "\ec6d";
+}
+
+.icon-email:before {
+    content: "\e99b";
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+</head>
+<body>
+    <div class="header">
+      <h1>Movie Hunter</h1>
+      <p>Movie Recommendation</p>
+    </div>
+
+<div class="content">
+  <p>Please type in 5 movies that you like.</p>
+
+  <!--Make sure the form has the autocomplete function switched off:-->
+  <form autocomplete="off" method="POST" action="/quick_recommendations" class="form">
+    <div class="autocomplete" style="width:300px;">
+      <input id="myInput_1" type="text" name="first" placeholder="First movie">
+      <input id="myInput_2" type="text" name="second" placeholder="Second movie">
+      <input id="myInput_3" type="text" name="third" placeholder="Third movie">
+      <input id="myInput_4" type="text" name="fourth" placeholder="Fourth movie">
+      <input id="myInput_5" type="text" name="fifth" placeholder="Fifth movie">
+    </div>
+
+    <div class="tooltip">
+      <input class="tooltip" type="submit" value="Recommend Movies For Me">
+        <span class="tooltiptext">if you are logging in first time this might take 1-2 minutes.</span>
+    </div>
+
+  </form>
+</div>
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var movies =  {{ data|tojson }};
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput_1"), movies);
+autocomplete(document.getElementById("myInput_2"), movies);
+autocomplete(document.getElementById("myInput_3"), movies);
+autocomplete(document.getElementById("myInput_4"), movies);
+autocomplete(document.getElementById("myInput_5"), movies);
+</script>
+  <div id="footer">
+    <p class="rf">Developed by Badal Nabizade</p>
+    <p class="lf" ><a class="fab fa-github" href="#" style="font-size:24px;"></a>
+    <a class="fas fa-envelope" href="mailto:nabizadebadal@gmail.com?Subject=Hello%20again" style="font-size:24px; margin-left:20px;"></a></p>
+    <div style="clear:both;"></div>
+
+  </div>
+
+
+</body>
+</html>
