@@ -24,5 +24,5 @@
 
 * 2.5. While recommendations are under generating process, app shows notify.html to users who want to see recommendations.
 
-**Note 1:** step 2.2.4. might take up to 1 minute.
+**Note 1:** step 2.2.4. might take up to 1 minute.<br/>
 **Note 2:** generating recommendations might take up to 20 minutes. 
