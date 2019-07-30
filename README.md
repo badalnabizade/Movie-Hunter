@@ -19,6 +19,10 @@
 * 2.4. In every 15 minutes Google Cloud Scheduler runs dataproc_manager.py 
 * 2.4.1. run_job function in dataproc_manager.py checks whether users have selected movies in USER table and whether spark job for these users has been submited to cluster. 
 * 2.4.1.1. After that, run_job function creates cluster and submits engine.py file to this cluster for users who have selected movies and whose spark job hasn't been submited already.    
-* 2.4.1.2. engine.py file selects users from USER TABLE who have selected movies and whose spark job hasn't been submited to cluster. Then generates recommendations for these users, changes value of "job_submited" column to 'done' for these users in USER table. After generating recommendations process is finished, engine.py writes results to RECOMMENDATION table. __For more details, See: ./utils/engine.py__   
-* 2.4.2. If there is no user whose spark job hasn't been submited to cluster, run_job function does nothing. 
+* 2.4.1.2. engine.py file selects users from USER TABLE who have selected movies and whose spark job hasn't been submited to cluster. Then generates 48 recommendations for these users, changes value of "job_submited" column to 'done' for these users in USER table. After generating recommendations process is finished, engine.py writes results to RECOMMENDATION table. __For more details, See: ./utils/engine.py__   
+* 2.4.2. If there is no user whose spark job hasn't been submited to cluster, run_job function does nothing.
 
+* 2.5. While recommendations are under generating process, app shows notify.html to users who want to see recommendations.
+
+**Note 1:** step 2.2.4. might take up to 1 minute.
+**Note 2:** generating recommendations might take up to 20 minutes. 
