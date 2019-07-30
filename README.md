@@ -1,11 +1,11 @@
 # Serverless Movie Recommmendation System
 ## Application is online in [here](http://sparkrecommendationengine.appspot.com/)
 ### How it Works:
-* 1) User signs up
+* 1 User signs up
 * 1.1. main.py assigns a new id to registered user. 
 * 1.2. main.py writes user's id, name, mail and hashed password to USER table.
 
-* 2) User signs in
+* 2 User signs in
 * 2.1. Apps checks whether user has selected movies in order to get recommendations.
 
 * 2.2. If logged in user hasn't selected movies yet in order to get recommendation, app forwards user to movie selection section.
