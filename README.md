@@ -26,3 +26,4 @@
 
 **Note 1:** step 2.2.4. might take up to 1 minute.<br/>
 **Note 2:** generating recommendations might take up to 20 minutes. 
+**Note 3:** movies in best_movies.html are obtained from [Notebook.ipynb](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/master/Notebook.ipynb)
