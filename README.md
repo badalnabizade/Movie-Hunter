@@ -2,7 +2,7 @@
 ## Application is online in [here](http://sparkrecommendationengine.appspot.com/)
 ### How it Works:
 * 1 User signs up
-* 1.1. [main.py](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/tree/master/app#L77-L79) assigns a new id to registered user. 
+* 1.1. [main.py](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/b54349ee9f153773a8be4ec3cb14ac844f99f5bb/app/main.py#L77-L79) assigns a new id to registered user. 
 * 1.2. [main.py](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/b54349ee9f153773a8be4ec3cb14ac844f99f5bb/app/main.py#L86-L94) writes user's id, name, mail and hashed password to USER table.
 
 * 2 User signs in
