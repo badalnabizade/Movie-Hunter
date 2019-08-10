@@ -189,10 +189,9 @@ for i in rows:
 
         # I want to recommend 48 movies to user. That is why loop breaks if tracker is equal to 49.
         if tracker == 49:
-            print('scraping is done!!!')
             break
-    print(len(results))
-    print('writing to DB...')
+
+    logging.info('writing to DB...')
     # START save top 48 recommendations to db.
     dfToSave = sqlContext.createDataFrame(results, schema_for_recos)
     dfToSave.write.jdbc(url=jdbcUrl, table=TABLE_RECOMMENDATIONS, mode='append')
