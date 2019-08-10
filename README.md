@@ -17,8 +17,8 @@
 * 2.3. If logged in user has already selected movies, main.py repeats step 2.2.2, 2.2.3 and 2.2.4 (but doesn't overwrite to QUICK_RECOMMENDATIONS table).
 
 * 2.4. In every 15 minutes Google Cloud Scheduler runs [dataproc_manager.py](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/master/utils/dataproc_manager.py) 
-* 2.4.1. [run_job](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/b8b06a8bfb54c371f7c7eeb4f918d9e13c8e2f5e/utils/dataproc_manager.py#L196) function in dataproc_manager.py checks whether users have selected movies in USER table and whether spark job for these users has been submited to cluster. 
-* 2.4.1.1. After that, run_job function creates cluster and submits engine.py file to this cluster for users who have selected movies and whose spark job hasn't been submited already.    
+* 2.4.1. [run_job](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/b54349ee9f153773a8be4ec3cb14ac844f99f5bb/utils/dataproc_manager.py#L197-L202) function in dataproc_manager.py checks whether users have selected movies in USER table and whether spark job for these users has been submited to cluster. 
+* 2.4.1.1. After that, [run_job function](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/b54349ee9f153773a8be4ec3cb14ac844f99f5bb/utils/dataproc_manager.py#L203-L211) creates cluster and submits engine.py file to this cluster for users who have selected movies and whose spark job hasn't been submited already.    
 * 2.4.1.2. engine.py file selects users from USER TABLE who have selected movies and whose spark job hasn't been submited to cluster. Then generates 48 recommendations for these users, changes value of "job_submited" column to 'done' for these users in USER table. After generating recommendations process is finished, engine.py writes results to RECOMMENDATION table. __For more details, See: [engine.py](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/master/utils/engine.py)__   
 * 2.4.2. If there is no user whose spark job hasn't been submited to cluster, run_job function does nothing.
 
