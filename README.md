@@ -1,3 +1,5 @@
+# NOTE: OPTIMEZE Best movies section in NOTEBOOK, especially proc_data_for_model function.
+
 # Serverless Movie Recommmendation System
 ## Application is online in [here](http://sparkrecommendationengine.appspot.com/)
 ### How it Works:
