@@ -1,7 +1,6 @@
-# NOTE: OPTIMEZE Best movies section in NOTEBOOK, especially proc_data_for_model function.
-
 # Serverless Movie Recommmendation System
 ## Application is online in [here](http://sparkrecommendationengine.appspot.com/)
+## [Medium Post](https://medium.com/@nabizadebadal/serverless-recommendation-system-using-pyspark-and-gcp-4fb163131881)
 ### How it Works:
 * 1 User signs up
 * 1.1. [main.py assigns a new id to registered user](https://github.com/badalnabizade/MovieHunter-Recommendation-Engine/blob/b54349ee9f153773a8be4ec3cb14ac844f99f5bb/app/main.py#L77-L79). 
