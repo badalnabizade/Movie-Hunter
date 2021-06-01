@@ -24,6 +24,6 @@ requests==2.22.0
 rsa==4.0
 six==1.12.0
 soupsieve==1.9.2
-urllib3==1.25.3
+urllib3==1.26.5
 Werkzeug==0.15.4
 gcsfs==0.2.2  
